@@ -8,12 +8,28 @@ interface Coordinates {
 }
 
 class Weather {
-  constructor(
-    public temperature: number,
-    public wind: number,
-    public humidity: number,
-    public description: string
-  ) {}
+  city: string;
+  date: string;
+  temperature: number;
+  wind: number;
+  humidity: number;
+  description: string;
+  icon: string;
+  iconDescription: string;
+  
+
+  constructor(city: string, temperature: number, wind: number, humidity: number, description: string, icon: string, iconDescription: string) {
+    this.city = city;
+    this.date = new Date().toLocaleDateString();
+    this.temperature = temperature;
+    this.wind = wind;
+    this.humidity = humidity;
+    this.description = description;
+    this.city = city;
+    this.icon = icon;
+    this.iconDescription = iconDescription;
+    this.iconDescription = iconDescription;
+  }
 }
 
 class WeatherService {
@@ -51,13 +67,15 @@ class WeatherService {
     const response = await fetch(this.buildWeatherQuery(coordinates));
     return response.json();
   }
-
   private parseCurrentWeather(response: any): Weather {
     return new Weather(
+      this.city,
       response.main.temp,
       response.wind.speed,
       response.main.humidity,
-      response.weather[0].description
+      response.weather[0].description,
+      response.weather[0].icon,
+      response.weather[0].main
     );
   }
 

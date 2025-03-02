@@ -1,1 +1,21 @@
-[]
+[
+    {
+        "name": "Virginia",
+        "id": 1
+    },
+    {
+        "name": "Maryland",
+        "id": 2
+    },
+    {
+        "name": "DC",
+        "id": 3
+        },
+    
+    {   
+        "name": "New York",
+        "id": 4
+        }
+    ]
+
+
